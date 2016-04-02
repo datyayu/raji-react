@@ -9,6 +9,10 @@
   },
   "author": "Arturo Coronel <aoitsu3@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "url": "https://github.com/datyayu/raji-react.git",
+    "type": "git"
+  },
   "dependencies": {
     "express": "^4.13.4",
     "react": "^0.14.8",
