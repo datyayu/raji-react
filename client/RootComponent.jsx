@@ -2,6 +2,7 @@ import React from 'react';
 import './rootStyles.sass';
 
 import Sidebar from './components/Sidebar';
+import MobileContentBlocker from './components/MobileContentBlocker';
 import ArtistListView from './views/ArtistListView';
 
 
@@ -18,13 +19,14 @@ const logo = {
   url: '#/',
 };
 
-const sidebarIsActive = false;
+const sidebarIsActive = true;
 
 
 const RootComponent = () => (
   <div>
     <Sidebar isActive={sidebarIsActive} logo={logo} links={links} />
     <ArtistListView />
+    <MobileContentBlocker isActive={sidebarIsActive} />
   </div>
 );
 
