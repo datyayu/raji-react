@@ -1,0 +1,19 @@
+@import '../../helpers/mixins.sass'
+
+.Artist
+  +box-cool-shadow()
+  background: $COLOR__BOX_BG
+  width: 100%
+  margin: 1em auto
+  padding: .2em
+  display: flex
+
+  +at-desktop()
+    width: 45%
+    margin: 1em 2.5%
+    display: inline-flex
+
+  &__link
+    height: 100%
+    width: 100%
+    display: block

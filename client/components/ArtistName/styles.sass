@@ -1,0 +1,33 @@
+@import '../../helpers/mixins.sass'
+
+
+.ArtistName
+    max-height: 100%
+    width: 95%
+    margin: 0
+    display: flex
+    flex: 1
+    align-items: center
+    justify-content: center
+
+    +at-tablet()
+      height auto
+      min-height 3em
+      max-height 3em
+      border-bottom 1px solid $COLOR__CLEAR_TEXT
+
+
+    &__text
+      color: white
+      margin: 0
+      font-size: 1.3em
+      font-weight: 200
+
+      +at-tablet()
+        &__text
+          +ellipsis-multi-wrap(1.2em, 1.2, 2)
+          font-size: 1.2em
+          overflow: hidden
+
+          span
+            max-height: 3em

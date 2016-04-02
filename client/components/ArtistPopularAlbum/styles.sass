@@ -1,0 +1,17 @@
+@import '../../helpers/mixins.sass'
+
+
+.ArtistPopularAlbum
+  height: 50px
+  width: 50px
+  transition: .1s all ease-in-out
+  display: block
+
+  &__image
+    height: 100%
+    width: 100%
+
+  &:hover
+    +box-hover-shadow($COLOR__BOX_HIGHLIGHT)
+    height: 70px
+    width: 70px

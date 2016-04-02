@@ -1,0 +1,18 @@
+@import '../../helpers/mixins.sass'
+
+
+.ArtistPopularAlbumsList
+  height: 100%
+  width: 100%
+  display: none
+  flex: 1
+  justify-content: space-around
+  align-items: center
+
+  +at-tablet()
+    display: flex
+
+  &__text
+    color: white
+    &:hover
+      color: $COLOR__BOX_HIGHLIGHT
