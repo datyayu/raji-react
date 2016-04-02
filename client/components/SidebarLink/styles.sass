@@ -1,0 +1,47 @@
+@import '../../helpers/mixins.sass'
+@import '../../config/variables.sass'
+
+
+.SidebarLink
+  text-align: center
+  margin: .5em 0
+  width: 100%
+  border-bottom: 1px solid $COLOR__LIGHT_TEXT
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
+  +at-desktop()
+    text-align: left
+    border: none
+
+  &:hover
+    background: none
+    font-size: 1em
+    background: $COLOR__BOX_BG_ACTIVE
+
+    +at-desktop()
+      background: none
+      font-size: 1.2em
+
+
+  &__link
+    color: $COLOR__LIGHT_TEXT
+    font-size: 1.5em
+    display: block
+    padding: .25em 0
+    transition: .1s all ease-in-out
+    text-decoration: none
+
+    &:hover
+      color: $COLOR__CLEAR_TEXT
+
+    +at-desktop()
+      padding: 1em 0
+
+
+  &__dash
+    display: none
+
+    +at-desktop()
+      display: inline-block

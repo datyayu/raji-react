@@ -1,0 +1,50 @@
+@import '../../helpers/mixins.sass'
+@import '../../config/variables.sass'
+
+
+.SidebarLogo
+  display: block
+  text-align: center
+  text-decoration: none
+  transition: .1s all ease-in-out
+  width: 100%
+  position: static
+
+  +at-desktop()
+    position: absolute
+    top: 20px
+    left: 0
+
+
+  &:hover
+    background: $COLOR__BOX_BG_ACTIVE
+    top: 10px
+
+    +at-desktop()
+      background: none
+
+
+  &__img
+    margin: 0 auto
+    display: block
+    height: 120px
+    width: 120px
+    transition: .1s all ease-in-out
+    display: none
+
+    +at-desktop()
+      display: block
+
+    &:hover
+      width: 130px
+      height: 130px
+
+  &__text
+    color: $COLOR__CLEAR_TEXT
+    font-weight: 200
+    padding: .5em 0
+    margin: 0
+    border-bottom: 1px solid $COLOR__CLEAR_TEXT
+
+    +at-desktop()
+      display: none

@@ -11,7 +11,7 @@ if (__DEV__) {
 }
 
 /* Routes */
-app.use('/public', express.static(paths.ASSETS_DIR));
+app.use('/assets', express.static(paths.ASSETS_DIR));
 app.get('*', (req, res) => res.sendFile(paths.INDEX_FILE));
 
 

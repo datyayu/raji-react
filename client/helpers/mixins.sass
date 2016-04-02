@@ -1,0 +1,39 @@
+@import '../config/variables.sass'
+
+/* Text mixins */
+=ellipsis-wrap()
+  white-space: nowrap
+  overflow-x: hidden
+  text-overflow: ellipsis
+
+=ellipsis-multi-wrap($font-size, $line-height, $lines-to-show)
+  // Fallback for non-webkit
+  display: block
+  max-height: $font-size*$line-height*$lines-to-show
+
+  display: -webkit-box
+  font-size: $font-size
+  line-height: $line-height
+  -webkit-line-clamp: $lines-to-show
+  -webkit-box-orient: vertical
+  overflow: hidden
+  text-overflow: ellipsis
+
+
+/* Box mixins */
+=box-cool-shadow()
+  box-shadow: 0 -1px 10px $COLOR__BOX_BG
+
+
+/* Media queries mixins */
+=at-tablet()
+  @media screen and (min-width: $TABLET_QUERY)
+    @content
+
+=at-desktop()
+  @media screen and (min-width: $DESKTOP_QUERY)
+    @content
+
+=at-hd-desktop()
+  @media screen and (min-width: $HD_QUERY)
+    @content

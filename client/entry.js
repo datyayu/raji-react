@@ -1,9 +1,11 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-import MyComponent from './component';
+import RootComponent from './RootComponent';
+
 
 const $mountPoint = document.querySelector('#app');
-const rootElement = <MyComponent text="world" />;
+const rootComponent = <RootComponent text="world" />;
 
-render(rootElement, $mountPoint);
+
+render(rootComponent, $mountPoint);
