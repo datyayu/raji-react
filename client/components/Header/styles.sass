@@ -1,0 +1,33 @@
+@import '../../config/variables.sass'
+@import '../../helpers/mixins.sass'
+
+
+.Header
+  background: $COLOR__BOX_BG
+  color: $COLOR__CLEAR_TEXT
+  height: 3.3em
+  width: 100%
+  position: fixed
+  top: 0
+  left: 0
+  z-index: 1
+  box-shadow: 0px 2px 16px $COLOR__BOX_BG
+
+  +at-desktop()
+    position: static
+    height: 5em
+    background: none
+    color: $COLOR__DARK_TEXT
+    border-bottom: 1px solid $COLOR__LIGHT_TEXT
+    box-shadow: none
+
+  .Icon-bars
+    color: white
+    position: absolute
+    top: .17em
+    left: .25em
+    font-size: 2.5em
+    z-index: 1
+
+    +at-desktop()
+      display none

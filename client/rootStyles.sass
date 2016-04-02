@@ -1,0 +1,29 @@
+@import './helpers/mixins.sass'
+
+body
+  margin: 0
+  font-family: 'Century Gothic', 'CenturyGothic', 'AppleGothic', 'HelveticaNeue-Light', 'Arial', 'sans-serif'
+  overflow-x: hidden
+
+  +at-desktop()
+    margin-left: 200px
+
+ul
+  margin: 0
+  padding: 0
+
+li
+  list-style: none
+  box-sizing: border-box
+
+a
+  text-decoration: none
+  margin: 0
+
+.Content
+  width: 100%
+  margin: 0em auto
+
+  +at-desktop()
+    width: 90%
+    margin-top: 3em

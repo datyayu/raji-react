@@ -1,0 +1,31 @@
+@import '../../config/variables.sass'
+@import '../../helpers/mixins.sass'
+
+
+.HeaderTitle
+  +ellipsis-wrap()
+  display: none
+  font-size: 1.3em
+  text-align: center
+  font-weight: 200
+  margin: 0 auto
+  padding: .7em 0
+  width: 70%
+  word-wrap: none
+
+  &.is-showing
+    display: block
+
+
++at-tablet()
+  .HeaderTitle
+    width: 80%
+
+
++at-desktop()
+  .HeaderTitle
+    display: block
+    color: $COLOR__DARK_TEXT
+    font-size: 3em
+    padding: .25em 0
+    width: 90%
