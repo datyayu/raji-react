@@ -3,7 +3,7 @@ run-server:
 
 tests:
 	# NODE_ENV=production allows to ignore the hrme preset.
-	NODE_ENV=production ava --tap | tap-spec
+	NODE_ENV=production ava
 
 watch-tests:
 	NODE_ENV=production ava --watch
