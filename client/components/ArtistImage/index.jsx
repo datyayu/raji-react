@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import './styles.sass';
 
 
-const ArtistImage = ({ id, name, image = '/assets/img/defaultArtist.jpg' }) => (
+const ArtistImage = ({ id, name, image = '/assets/defaultArtist.jpg' }) => (
   <a href={`#/artist/${id}`} className="ArtistImage__link">
     <img src={image} alt={name} className="ArtistImage" />
   </a>

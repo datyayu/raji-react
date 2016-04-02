@@ -3,7 +3,7 @@ import './styles';
 
 
 const ArtistName = ({ id, name }) => (
-  <a href={`#/artist/${id}`} className="ArtistName">
+  <a href={`#/artists/${id}`} className="ArtistName">
     <h2 className="ArtistName__text">{name}</h2>
   </a>
 );
