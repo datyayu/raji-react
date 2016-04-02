@@ -1,0 +1,96 @@
+@import '../../config/variables.sass'
+@import '../../helpers/mixins.sass'
+
+.Album
+  height: 50vw
+  width: 50vw
+  margin: 0
+  position: relative
+  transition: 100ms all ease-in-out
+
+  +at-tablet()
+    height: 12.5em
+    width: 150px
+    text-align: center
+    margin: .5em
+    margin-top: 1em
+    padding: 5px
+
+    &:hover
+      padding: 0px
+
+      img
+        +box-hover-shadow($COLOR__BOX_HIGHLIGHT)
+        height: 140px
+        width: 140px
+
+  +at-desktop()
+    width: 24%
+    margin: .5em .5%
+    display: inline-block
+    padding: 10px
+
+    &:hover
+      padding: 0
+
+      img
+        +box-hover-shadow($COLOR__BOX_HIGHLIGHT)
+        height: 150px
+        width: 150px
+
+  +at-hd-desktop()
+    width: 19%
+
+
+  &__link
+    height: 100%
+    width: 100%
+    margin: 0
+
+  &__img
+    width: 100%
+    height: 100%
+    margin: 0
+
+    +at-tablet()
+      height: 130px
+      width: 130px
+      transition: .1s all ease-in-out
+
+      img
+        +box-cool-shadow()
+        height: 100%
+        width: 100%
+        padding: 5px
+        margin-left: -5px
+
+    +at-desktop()
+      height: 140px
+      width: 140px
+
+  &__title
+    +ellipsis-multi-wrap(1em, 1, 3)
+    background: rgba($COLOR__BOX_BG, .7)
+    height: 2.5em
+    width: 100%
+    max-width: 100%
+    color: white
+    font-weight: 200
+    text-align: center
+    margin: 0
+    position: absolute
+    bottom: 0
+    left: 0
+    display: flex
+    justify-content: center
+    align-items: center
+    padding: 1em 0
+
+    +at-tablet()
+      +ellipsis-multi-wrap(.8em, 1.3, 3)
+      background: none
+      color: $COLOR__DARK_TEXT
+      width: 150px
+      margin: 3px auto
+      position: static
+      padding: .2em
