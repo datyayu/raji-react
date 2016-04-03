@@ -1,12 +1,13 @@
 import React, { PropTypes } from 'react';
 
 
-const Icon = ({ name }) => (
-  <i className={`fa fa-${name} Icon Icon-${name}`} />
+const Icon = ({ name, className = '' }) => (
+  <i className={`fa fa-${name} Icon Icon-${name} ${className}`} />
 );
 
 Icon.propTypes = {
   name: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };
 
 

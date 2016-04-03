@@ -25,7 +25,7 @@ const artists = [
 ];
 
 
-const ArtistsContainer = () => (
+const ArtistListView = () => (
   <main className="Content">
     <Header text="Artists" />
     <ArtistList artists={artists} />
@@ -33,4 +33,4 @@ const ArtistsContainer = () => (
 );
 
 
-export default ArtistsContainer;
+export default ArtistListView;

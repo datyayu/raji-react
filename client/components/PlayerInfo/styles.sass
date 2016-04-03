@@ -1,0 +1,53 @@
+@import '../../helpers/mixins.sass'
+
+
+.PlayerInfo
+  color: $COLOR__CLEAR_TEXT
+  position: relative
+
+  +at-desktop()
+  &__img
+    background-repeat: no-repeat
+    background-position: center
+    background-size: cover
+    height: 100vh
+    width: 100vw
+    position: fixed
+    top: 3.3em
+    left: 0
+
+    +at-desktop()
+      position: static
+      width: 400px
+      height: 400px
+      margin: 2em auto 0 auto
+
+  &__text
+    background: rgba($COLOR__BOX_BG, .5)
+    width: 100vw
+    padding: 1em
+    position: absolute
+    text-align: center
+    box-sizing: border-box
+    z-index: 2
+
+    +at-desktop()
+      background: none
+      color: $COLOR__DARK_TEXT
+      font-size: 1.8em
+      padding: .5em
+      position: static
+      width: auto
+
+  &__title,
+  &__album,
+  &__artist
+    +ellipsis-wrap()
+    font-weight: 200
+    margin: .5em 0
+
+  &__album
+    display: none
+
+    +at-desktop()
+      display: block

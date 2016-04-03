@@ -16,7 +16,7 @@ const albums = [
 ];
 
 
-const AlbumsContainer = () => (
+const AlbumListView = () => (
   <main className="Content">
     <Header text="Iguchi Yuka" />
     <AlbumList albums={albums} />
@@ -24,4 +24,4 @@ const AlbumsContainer = () => (
 );
 
 
-export default AlbumsContainer;
+export default AlbumListView;

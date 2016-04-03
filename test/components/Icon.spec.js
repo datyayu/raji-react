@@ -19,6 +19,13 @@ test('Icon should use the fa class', t => {
 });
 
 
+test('It should use any classNames passed to it', t => {
+  const component = shallow(<Icon name="raji" className="test test-icon" />);
+
+  t.true(component.hasClass('test'), 'You need to use the classnames passed via props');
+  t.true(component.hasClass('test-icon'), 'You need to use the classnames passed via props');
+});
+
 test('Icon should generate a fa-<name> class based on the name prop', t => {
   const component = shallow(<Icon name="raji" />);
 
