@@ -3,7 +3,7 @@ import './styles.sass';
 
 
 const ArtistImage = ({ id, name, image = '/assets/defaultArtist.jpg' }) => (
-  <a href={`#/artist/${id}`} className="ArtistImage__link">
+  <a href={`#/artists/${id}`} className="ArtistImage__link">
     <img src={image} alt={name} className="ArtistImage" />
   </a>
 );

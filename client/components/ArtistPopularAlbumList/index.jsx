@@ -7,8 +7,16 @@ import ArtistPopularAlbum from '../ArtistPopularAlbum';
 const ArtistPopularAlbumsList = ({ artistId, albums = [] }) => (
   <ul className="ArtistPopularAlbumList">
     {
-      albums.map(album => <ArtistPopularAlbum key={album.id} {...album} />)
+      albums
+        .reduce((list, artist) => {
+          /* Pick only 3 items */
+          if (list.length >= 3) { return list; }
+
+          return [...list, artist];
+        }, [])
+        .map(album => <ArtistPopularAlbum key={album.id} {...album} />)
     }
+
     {
       albums.length !== 0
         ? <a href={`#/artist/${artistId}`} className="ArtistPopularAlbumList__text">More ></a>

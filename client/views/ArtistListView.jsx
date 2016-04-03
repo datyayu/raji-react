@@ -1,36 +1,43 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
+import * as ArtistsActions from '../actions/artists';
 
 import Header from '../components/Header';
 import ArtistList from '../components/ArtistList';
 
-const baseArtist = {
-  name: 'Iguchi Yuka',
-  image: '/assets/iguchi.jpg',
-  albums: [
-    { id: 5, title: 'Hafa Adai', image: '/assets/iguigu.jpg' },
-    { id: 2, title: 'Hafa Adai', image: '/assets/iguigu.jpg' },
-    { id: 3, title: 'Hafa Adai', image: '/assets/iguigu.jpg' },
-  ],
+
+class ArtistListView extends Component {
+  componentWillMount() {
+    this.props.actions.fetchArtists();
+  }
+
+  render() {
+    const { artists } = this.props;
+
+    return (
+      <main className="Content">
+      <Header text="Artists" />
+      <ArtistList artists={artists} />
+      </main>
+    );
+  }
+}
+
+ArtistListView.propTypes = {
+  artists: PropTypes.array,
+  actions: PropTypes.object,
 };
 
 
-const artists = [
-  { ...baseArtist, id: 1, name: 'Kishida Kishin and The Akeboshi Rockets' },
-  { ...baseArtist, id: 2 },
-  { ...baseArtist, id: 3 },
-  { ...baseArtist, id: 4 },
-  { ...baseArtist, id: 5 },
-  { ...baseArtist, id: 6 },
-  { ...baseArtist, id: 7 },
-];
+const mapStateToProps = (state) => ({
+  artists: state.artists,
+});
+
+const mapActionsToProps = (dispatch) => ({
+  actions: bindActionCreators(ArtistsActions, dispatch),
+});
 
 
-const ArtistListView = () => (
-  <main className="Content">
-    <Header text="Artists" />
-    <ArtistList artists={artists} />
-  </main>
-);
-
-
-export default ArtistListView;
+export default connect(mapStateToProps, mapActionsToProps)(ArtistListView);

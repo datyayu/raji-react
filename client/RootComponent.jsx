@@ -3,7 +3,7 @@ import './rootStyles.sass';
 
 import Sidebar from './components/Sidebar';
 import MobileContentBlocker from './components/MobileContentBlocker';
-import PlayerView from './views/PlayerView';
+import ArtistListView from './views/ArtistListView';
 
 
 const links = [
@@ -25,7 +25,7 @@ const sidebarIsActive = false;
 const RootComponent = () => (
   <div>
     <Sidebar isActive={sidebarIsActive} logo={logo} links={links} />
-    <PlayerView />
+    <ArtistListView />
     <MobileContentBlocker isActive={sidebarIsActive} />
   </div>
 );
