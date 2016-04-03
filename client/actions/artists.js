@@ -2,7 +2,7 @@ import {
   ARTIST_LIST__FETCH,
   ARTIST_LIST__FETCH_FAILED,
   ARTIST_LIST__FETCH_SUCESSFUL,
-} from '../config/actionTypes';
+} from '../constants/actionTypes';
 
 
 const artistsFetchAction = () => ({
