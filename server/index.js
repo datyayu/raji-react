@@ -1,6 +1,9 @@
 import express from 'express';
+
 import * as paths from '../config/paths';
 import { __DEV__, HOST, PORT } from '../config/env';
+
+import router from './routes';
 import webpackMiddleware from '../webpack';
 
 const app = express();
@@ -11,6 +14,7 @@ if (__DEV__) {
 }
 
 /* Routes */
+app.use('/api', router);
 app.use('/assets', express.static(paths.ASSETS_DIR));
 app.get('*', (req, res) => res.sendFile(paths.INDEX_FILE));
 
