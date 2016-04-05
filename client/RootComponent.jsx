@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import './rootStyles.sass';
+
+import ApplicationContainer from './containers/application';
 
 import Sidebar from './components/Sidebar';
 import MobileContentBlocker from './components/MobileContentBlocker';
@@ -19,16 +21,26 @@ const logo = {
   url: '#/',
 };
 
-const sidebarIsActive = false;
 
-
-const RootComponent = () => (
+const RootComponent = ({ applicationState, applicationActions }) => (
   <div>
-    <Sidebar isActive={sidebarIsActive} logo={logo} links={links} />
+    <Sidebar isActive={applicationState.showSidemenu} logo={logo} links={links} />
     <PlayerView />
-    <MobileContentBlocker isActive={sidebarIsActive} />
+    <MobileContentBlocker
+      isActive={applicationState.showSidemenu}
+      closeAction={applicationActions.toggleSidemenu}
+    />
   </div>
 );
 
+RootComponent.propTypes = {
+  applicationState: PropTypes.shape({
+    showSidemenu: PropTypes.bool.isRequired,
+  }),
+  applicationActions: PropTypes.shape({
+    toggleSidemenu: PropTypes.func.isRequired,
+  }),
+};
 
-export default RootComponent;
+
+export default ApplicationContainer(RootComponent);

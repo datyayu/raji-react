@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import Header from '../components/Header';
 import Player from '../components/Player';
+
+import ApplicationContainer from '../containers/application';
 
 
 const playerState = {
@@ -41,12 +43,18 @@ const playerState = {
 };
 
 
-const PlayerView = () => (
+const PlayerView = ({ applicationActions }) => (
   <main className="Content">
-    <Header text="Now Playing" />
+    <Header text="Now Playing" toggleAction={applicationActions.toggleSidemenu} />
     <Player {...playerState} />
   </main>
 );
 
+PlayerView.propTypes = {
+  applicationActions: PropTypes.shape({
+    toggleMenu: PropTypes.func,
+  }),
+};
 
-export default PlayerView;
+
+export default ApplicationContainer(PlayerView);
