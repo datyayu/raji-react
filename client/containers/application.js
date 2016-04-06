@@ -6,11 +6,8 @@ import * as applicationActions from '../actions/application';
 
 
 function ApplicationContainer(Component) {
-  const ApplicationComponent = ({ state, actions }) => (
-    <Component
-      applicationState={state}
-      applicationActions={actions}
-    />
+  const ApplicationComponent = (props) => (
+    <Component {...props} />
   );
 
   ApplicationComponent.propTypes = {
@@ -19,11 +16,11 @@ function ApplicationContainer(Component) {
   };
 
   const mapStateToProps = ({ application }) => ({
-    state: application,
+    applicationState: application,
   });
 
   const mapActionsToProps = (dispatch) => ({
-    actions: bindActionCreators(applicationActions, dispatch),
+    applicationActions: bindActionCreators(applicationActions, dispatch),
   });
 
 
