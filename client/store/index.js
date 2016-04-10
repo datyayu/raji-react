@@ -1,5 +1,6 @@
 import thunkMiddleware from 'redux-thunk';
 import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
+import { routerReducer } from 'react-router-redux';
 
 import artists from '../reducers/artists';
 import albums from '../reducers/albums';
@@ -12,6 +13,8 @@ const customCreateStore = compose(
 
 
 const reducers = combineReducers({
+  routing: routerReducer,
+
   application,
   artists,
   albums,
