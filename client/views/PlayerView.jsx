@@ -52,7 +52,7 @@ const PlayerView = ({ applicationActions }) => (
 
 PlayerView.propTypes = {
   applicationActions: PropTypes.shape({
-    toggleMenu: PropTypes.func,
+    toggleSidemenu: PropTypes.func,
   }),
 };
 
