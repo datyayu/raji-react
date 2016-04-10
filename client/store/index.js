@@ -8,7 +8,8 @@ import application from '../reducers/application';
 
 
 const customCreateStore = compose(
-  applyMiddleware(thunkMiddleware)
+  applyMiddleware(thunkMiddleware),
+  (window.devToolsExtension ? window.devToolsExtension() : f => f)
 )(createStore);
 
 
