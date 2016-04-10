@@ -1,43 +1,23 @@
-import React, { Component, PropTypes } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import React, { PropTypes } from 'react';
 
-import * as ArtistsActions from '../actions/artists';
+import ArtistsContainer from '../containers/artists';
 
 import Header from '../components/Header';
 import ArtistList from '../components/ArtistList';
 
 
-class ArtistListView extends Component {
-  componentWillMount() {
-    this.props.actions.fetchArtists();
-  }
-
-  render() {
-    const { artists } = this.props;
-
-    return (
-      <main className="Content">
-      <Header text="Artists" />
-      <ArtistList artists={artists} />
-      </main>
-    );
-  }
-}
+const ArtistListView = ({ artistsState }) => (
+  <main className="Content">
+    <Header text="Artists" />
+    <ArtistList artists={artistsState.artists} />
+  </main>
+);
 
 ArtistListView.propTypes = {
-  artists: PropTypes.array,
-  actions: PropTypes.object,
+  artistsState: PropTypes.shape({
+    artists: PropTypes.array,
+  }),
 };
 
 
-const mapStateToProps = (state) => ({
-  artists: state.artists,
-});
-
-const mapActionsToProps = (dispatch) => ({
-  actions: bindActionCreators(ArtistsActions, dispatch),
-});
-
-
-export default connect(mapStateToProps, mapActionsToProps)(ArtistListView);
+export default ArtistsContainer(ArtistListView);

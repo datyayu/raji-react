@@ -5,16 +5,21 @@ import {
 } from '../constants/actionTypes';
 
 
-export default function artistsReducer(state = [], action) {
+const initialState = {
+  artists: [],
+};
+
+
+export default function artistsReducer(state = initialState, action) {
   switch (action.type) {
     case ARTIST_LIST__FETCH:
-      return [];
+      return { ...state, artists: [] };
 
     case ARTIST_LIST__FETCH_FAILED:
-      return [];
+      return { ...state, artists: [] };
 
     case ARTIST_LIST__FETCH_SUCESSFUL:
-      return action.artists;
+      return { ...state, artists: action.artists };
 
     default:
       return state;
