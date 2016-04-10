@@ -37,8 +37,9 @@ test('SidebarLogo should use the title given', t => {
   const { logo } = t.context;
 
   const component = shallow(<SidebarLogo {...logo} />);
+  const textNode = component.children().first();
 
-  t.is(component.text(), 'raji', 'It should use the title given via `text` prop.');
+  t.is(textNode.text(), 'raji', 'It should use the title given via `text` prop.');
 });
 
 
@@ -46,7 +47,7 @@ test('SidebarLogo should use the url given', t => {
   const { logo } = t.context;
 
   const component = shallow(<SidebarLogo url="/test" {...logo} />);
-  const linkUrl = component.render().find('a').attr('href');
+  const linkUrl = component.props().to;
 
   t.is(linkUrl, '/test', 'It should use the link given via `url` prop.');
 });
@@ -56,7 +57,8 @@ test('SidebarLogo\'s link should default to home (/) if not url given', t => {
   const { logo } = t.context;
 
   const component = shallow(<SidebarLogo {...logo} />);
-  const linkUrl = component.render().find('a').attr('href');
+  const linkUrl = component.props().to;
+
 
   t.is(linkUrl, '/', 'It should default to /.');
 });

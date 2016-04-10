@@ -5,27 +5,27 @@ import ApplicationContainer from './containers/application';
 
 import Sidebar from './components/Sidebar';
 import MobileContentBlocker from './components/MobileContentBlocker';
-import PlayerView from './views/PlayerView';
 
 
 const links = [
-  { text: 'home', url: '#/' },
-  { text: 'player', url: '#/player' },
-  { text: 'artists', url: '#/artists' },
-  { text: 'albums', url: '#/albums' },
+  { text: 'home', url: '/' },
+  { text: 'player', url: '/player' },
+  { text: 'artists', url: '/artists' },
+  { text: 'albums', url: '/albums' },
 ];
 
 const logo = {
   img: '/assets/logo.svg',
   text: 'raji',
-  url: '#/',
 };
 
 
-const RootComponent = ({ applicationState, applicationActions }) => (
+const RootComponent = ({ applicationState, applicationActions, children }) => (
   <div>
     <Sidebar isActive={applicationState.showSidemenu} logo={logo} links={links} />
-    <PlayerView />
+
+    { children }
+
     <MobileContentBlocker
       isActive={applicationState.showSidemenu}
       closeAction={applicationActions.toggleSidemenu}
@@ -40,6 +40,7 @@ RootComponent.propTypes = {
   applicationActions: PropTypes.shape({
     toggleSidemenu: PropTypes.func.isRequired,
   }),
+  children: PropTypes.object,
 };
 
 

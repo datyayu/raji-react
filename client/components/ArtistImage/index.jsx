@@ -1,11 +1,12 @@
 import React, { PropTypes } from 'react';
+import { Link } from 'react-router';
 import './styles.sass';
 
 
 const ArtistImage = ({ id, name, image = '/assets/defaultArtist.jpg' }) => (
-  <a href={`#/artists/${id}`} className="ArtistImage__link">
+  <Link to={`/artists/${id}`} className="ArtistImage__link">
     <img src={image} alt={name} className="ArtistImage" />
-  </a>
+  </Link>
 );
 
 ArtistImage.propTypes = {

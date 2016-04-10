@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { Link } from 'react-router';
 import './styles';
 
 import ArtistPopularAlbum from '../ArtistPopularAlbum';
@@ -19,7 +20,7 @@ const ArtistPopularAlbumsList = ({ artistId, albums = [] }) => (
 
     {
       albums.length !== 0
-        ? <a href={`#/artist/${artistId}`} className="ArtistPopularAlbumList__text">More ></a>
+        ? <Link to={`/artist/${artistId}`} className="ArtistPopularAlbumList__text">More ></Link>
         : null
     }
   </ul>

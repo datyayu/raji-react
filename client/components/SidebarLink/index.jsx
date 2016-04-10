@@ -1,12 +1,13 @@
 import React, { PropTypes } from 'react';
+import { Link } from 'react-router';
 import './styles';
 
 
-const SidebarLink = ({ text, url = '#' }) => (
+const SidebarLink = ({ text, url = '/' }) => (
   <li className="SidebarLink">
-    <a href={url} className="SidebarLink__link">
+    <Link to={url} className="SidebarLink__link">
       <span className="SidebarLink__dash">——</span> {text}
-    </a>
+    </Link>
   </li>
 );
 

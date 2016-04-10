@@ -15,22 +15,23 @@ test('SidebarLink should use the SidebarLink class', t => {
 
 test('SidebarLink should use the text given', t => {
   const component = shallow(<SidebarLink text="raji" />);
+  const textNode = component.children().first().render();
 
-  t.is(component.text(), '—— raji', 'It should use the text given via `text` prop.');
+  t.is(textNode.text(), '—— raji', 'It should use the text given via `text` prop.');
 });
 
 
 test('SidebarLink should use the url given', t => {
   const component = shallow(<SidebarLink text="raji" url="/test" />);
-  const linkUrl = component.render().find('a').attr('href');
+  const linkUrl = component.children().first().props().to;
 
   t.is(linkUrl, '/test', 'It should use the link given via `url` prop.');
 });
 
 
-test('SidebarLink\'s link should default to # if not url given', t => {
+test('SidebarLink\'s link should default to / if not url given', t => {
   const component = shallow(<SidebarLink text="raji" />);
-  const linkUrl = component.render().find('a').attr('href');
+  const linkUrl = component.children().first().props().to;
 
-  t.is(linkUrl, '#', 'It should default to #.');
+  t.is(linkUrl, '/', 'It should default to /.');
 });

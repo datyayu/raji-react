@@ -14,17 +14,18 @@ test('Album should use the Album class', t => {
 
 test('Album should use the title given', t => {
   const component = shallow(<Album id={1} title="Hello" />);
+  const textNode = component.children().first().shallow();
 
-  t.is(component.text(), 'Hello', 'It should use the title given via `title` prop.');
+  t.is(textNode.text(), 'Hello', 'It should use the title given via `title` prop.');
 });
 
 
 test.todo('Replace for non-hash url');
 test('Album should generate a link with the given id', t => {
   const component = shallow(<Album id={1} title="Hello" />);
-  const linkUrl = component.render().find('a').attr('href');
+  const linkUrl = component.children().first().props().to;
 
-  t.is(linkUrl, '#/albums/1', 'It should generate a link using the `id` prop.');
+  t.is(linkUrl, '/albums/1', 'It should generate a link using the `id` prop.');
 });
 
 

@@ -14,15 +14,16 @@ test('ArtistName should use the ArtistName class', t => {
 
 test('ArtistName should use the name given', t => {
   const component = shallow(<ArtistName id={1} name="Hello" />);
+  const textNode = component.children().first();
 
-  t.is(component.text(), 'Hello', 'It should use the name given via `name` prop.');
+  t.is(textNode.text(), 'Hello', 'It should use the name given via `name` prop.');
 });
 
 
 test.todo('Replace for non-hash url');
 test('ArtistName should generate a link with the given id', t => {
   const component = shallow(<ArtistName id={1} name="Hello" />);
-  const linkUrl = component.render().find('a').attr('href');
+  const linkUrl = component.props().to;
 
-  t.is(linkUrl, '#/artists/1', 'It should generate a link using the `id` prop.');
+  t.is(linkUrl, '/artists/1', 'It should generate a link using the `id` prop.');
 });

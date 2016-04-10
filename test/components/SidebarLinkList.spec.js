@@ -9,10 +9,10 @@ import SidebarLink from '../../client/components/SidebarLink';
 
 test.beforeEach(t => {
   t.context.links = [
-    { text: 'home', url: '#/' },
-    { text: 'player', url: '#/player' },
-    { text: 'artists', url: '#/artists' },
-    { text: 'albums', url: '#/albums' },
+    { text: 'home', url: '/' },
+    { text: 'player', url: '/player' },
+    { text: 'artists', url: '/artists' },
+    { text: 'albums', url: '/albums' },
   ];
 });
 

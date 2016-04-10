@@ -1,11 +1,13 @@
 import React, { PropTypes } from 'react';
+import { Link } from 'react-router';
+
 import './styles';
 
 
 const ArtistName = ({ id, name }) => (
-  <a href={`#/artists/${id}`} className="ArtistName">
+  <Link to={`/artists/${id}`} className="ArtistName">
     <h2 className="ArtistName__text">{name}</h2>
-  </a>
+  </Link>
 );
 
 ArtistName.propTypes = {

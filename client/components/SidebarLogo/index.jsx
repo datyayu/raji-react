@@ -1,12 +1,13 @@
 import React, { PropTypes } from 'react';
+import { Link } from 'react-router';
 import './styles';
 
 
 const SidebarLogo = ({ img, text, url = '/' }) => (
-  <a className="SidebarLogo" href={url}>
+  <Link to={url} className="SidebarLogo">
     <h1 className="SidebarLogo__text">{text}</h1>
     <img src={img} className="SidebarLogo__img" />
-  </a>
+  </Link>
 );
 
 
