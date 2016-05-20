@@ -18,7 +18,7 @@ router.get('/artists', (req, res) => {
 router.get('/albums/:id', (req, res) => {
   const { id } = req.params;
   res.json({
-    album: albumsJSON.filter(album => album.id === id)[0] || null,
+    album: albumsJSON.filter(album => album.id === parseInt(id, 10))[0] || null,
   });
 });
 

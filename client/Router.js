@@ -3,11 +3,12 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 
 import Store from './store';
+import RootComponent from './RootComponent';
 
 import PlayerView from './views/PlayerView';
 import AlbumListView from './views/AlbumListView';
 import ArtistListView from './views/ArtistListView';
-import RootComponent from './RootComponent';
+import AlbumIndividualView from './views/AlbumIndividualView';
 
 
 const history = syncHistoryWithStore(browserHistory, Store);
@@ -20,7 +21,7 @@ const ApplicationRouter = () => (
       <Route path="player" component={PlayerView} />
       <Route path="artists" component={ArtistListView} />
       <Route path="albums" component={AlbumListView} />
-      <Route path="albums/:id" component={PlayerView} />
+      <Route path="albums/:id" component={AlbumIndividualView} />
     </Route>
   </Router>
 );

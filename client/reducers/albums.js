@@ -8,11 +8,13 @@ import {
 
 const initialState = {
   albums: [],
-  showingAlbum: null,
+  showingAlbum: {},
 };
 
 
 export default function applicationReducer(state = initialState, action) {
+  console.log(action);
+
   switch (action.type) {
     case ALBUMS__FETCH_LIST:
       return { ...state, albums: [] };
@@ -21,7 +23,7 @@ export default function applicationReducer(state = initialState, action) {
       return { ...state, albums: action.albums };
 
     case ALBUMS__FETCH_ALBUM:
-      return { ...state, showingAlbum: [] };
+      return { ...state, showingAlbum: {} };
 
     case ALBUMS__SET_SHOWING_ALBUM:
       return { ...state, showingAlbum: action.album };
