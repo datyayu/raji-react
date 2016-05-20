@@ -13,8 +13,6 @@ const initialState = {
 
 
 export default function applicationReducer(state = initialState, action) {
-  console.log(action);
-
   switch (action.type) {
     case ALBUMS__FETCH_LIST:
       return { ...state, albums: [] };

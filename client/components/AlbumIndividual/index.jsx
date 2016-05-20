@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
-import { Link } from 'react-router';
 import './styles';
+
+import AlbumArtistName from '../AlbumArtistName';
 
 
 const AlbumIndividual = ({ id, title, image = '/assets/defaultAlbum.png', artists = [] }) => (
@@ -11,10 +12,7 @@ const AlbumIndividual = ({ id, title, image = '/assets/defaultAlbum.png', artist
       <h3>
         {
           artists.map((artist, idx) =>
-            <Link key={idx} to={`/artists/${artist.id}`}>
-              {artist.name}
-              {idx + 1 < artists.length ? ', ' : '' }
-            </Link>
+            <AlbumArtistName key={idx} last={idx + 1 === artists.length} {...artist} />
           )
         }
       </h3>
