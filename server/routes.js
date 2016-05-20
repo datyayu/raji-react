@@ -7,12 +7,19 @@ import albumsJSON from './mock/albums';
 const router = Router();
 
 
+router.get('/albums', (req, res) => {
+  res.json({ albums: albumsJSON });
+});
+
 router.get('/artists', (req, res) => {
   res.json({ artists: artistsJSON });
 });
 
-router.get('/albums', (req, res) => {
-  res.json({ albums: albumsJSON });
+router.get('/albums/:id', (req, res) => {
+  const { id } = req.params;
+  res.json({
+    album: albumsJSON.filter(album => album.id === id)[0] || null,
+  });
 });
 
 

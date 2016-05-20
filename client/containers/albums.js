@@ -8,7 +8,7 @@ import * as albumsActions from '../actions/albums';
 function AlbumsContainer(ChildComponent) {
   class AlbumsComponent extends Component {
     componentDidMount() {
-      this.props.albumsActions.fetchAlbums();
+      this.props.albumsActions.fetchAlbumsList();
     }
 
     render() {

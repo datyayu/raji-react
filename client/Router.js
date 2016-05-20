@@ -20,6 +20,7 @@ const ApplicationRouter = () => (
       <Route path="player" component={PlayerView} />
       <Route path="artists" component={ArtistListView} />
       <Route path="albums" component={AlbumListView} />
+      <Route path="albums/:id" component={PlayerView} />
     </Route>
   </Router>
 );

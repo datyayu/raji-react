@@ -1,11 +1,14 @@
 import {
   ALBUMS__FETCH_LIST,
   ALBUMS__UPDATE_LIST,
-  ALBUMS__FETCH_FAILED,
+  ALBUMS__LIST_FETCH_FAILED,
+  ALBUMS__FETCH_ALBUM,
+  ALBUMS__SET_SHOWING_ALBUM,
+  ALBUMS__ALBUM_FETCH_FAILED,
 } from '../constants/actionTypes';
 
 
-const albumsFetchAction = () => ({
+const fetchAlbumsListAction = () => ({
   type: ALBUMS__FETCH_LIST,
 });
 
@@ -14,22 +17,50 @@ const updateAlbumListAction = (albums = []) => ({
   albums,
 });
 
-const albumsFetchFailedAction = (error) => ({
-  type: ALBUMS__FETCH_FAILED,
+const albumsListFetchFailedAction = (error) => ({
+  type: ALBUMS__LIST_FETCH_FAILED,
+  error,
+});
+
+const fetchAlbumAction = () => ({
+  type: ALBUMS__FETCH_ALBUM,
+});
+
+const setShowingAlbumAction = (album) => ({
+  type: ALBUMS__SET_SHOWING_ALBUM,
+  album,
+});
+
+const albumFetchFailedAction = (error) => ({
+  type: ALBUMS__ALBUM_FETCH_FAILED,
   error,
 });
 
 
-export function fetchAlbums() {
+export function fetchAlbumsList() {
   return dispatch => {
-    dispatch(albumsFetchAction());
+    dispatch(fetchAlbumsListAction());
 
     fetch('/api/albums')
       .then(response => response.json())
       .then(response => {
         dispatch(updateAlbumListAction(response.albums));
       })
-      .catch(error => dispatch(albumsFetchFailedAction(error)))
+      .catch(error => dispatch(albumsListFetchFailedAction(error)))
+    ;
+  };
+}
+
+export function fetchAlbum(id) {
+  return dispatch => {
+    dispatch(fetchAlbumAction());
+
+    fetch(`/api/albums/${id}`)
+      .then(response => response.json())
+      .then(response => {
+        dispatch(setShowingAlbumAction(response.album));
+      })
+      .catch(error => dispatch(albumFetchFailedAction(error)))
     ;
   };
 }

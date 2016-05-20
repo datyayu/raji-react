@@ -8,14 +8,15 @@ import Header from '../components/Header';
 import AlbumList from '../components/AlbumList';
 
 
-const AlbumListView = ({ albumsState, applicationActions }) => (
+const AlbumListView = ({ artistName = 'albums', albumsState, applicationActions }) => (
   <main className="Content">
-    <Header text="Iguchi Yuka" toggleAction={applicationActions.toggleSidemenu} />
+    <Header text={artistName} toggleAction={applicationActions.toggleSidemenu} />
     <AlbumList albums={albumsState.albums} />
   </main>
 );
 
 AlbumListView.propTypes = {
+  artistName: PropTypes.string,
   albumsState: PropTypes.shape({
     album: PropTypes.array,
   }),
