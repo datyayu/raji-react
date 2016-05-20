@@ -5,8 +5,8 @@ import { bindActionCreators } from 'redux';
 import * as albumsActions from '../actions/albums';
 
 
-function AlbumsContainer(ChildComponent) {
-  class AlbumsComponent extends Component {
+function AlbumIndividualContainer(ChildComponent) {
+  class AlbumIndividualComponent extends Component {
     componentDidMount() {
       this.props.albumsActions.fetchAlbum(this.props.albumId);
     }
@@ -16,7 +16,7 @@ function AlbumsContainer(ChildComponent) {
     }
   }
 
-  AlbumsComponent.propTypes = {
+  AlbumIndividualComponent.propTypes = {
     routingState: PropTypes.object,
     albumState: PropTypes.object,
     albumId: PropTypes.number.isRequired,
@@ -34,8 +34,8 @@ function AlbumsContainer(ChildComponent) {
   });
 
 
-  return connect(mapStateToProps, mapActionsToProps)(AlbumsComponent);
+  return connect(mapStateToProps, mapActionsToProps)(AlbumIndividualComponent);
 }
 
 
-export default AlbumsContainer;
+export default AlbumIndividualContainer;

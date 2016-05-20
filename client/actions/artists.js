@@ -1,22 +1,39 @@
 import {
-  ARTIST_LIST__FETCH,
-  ARTIST_LIST__FETCH_FAILED,
-  ARTIST_LIST__FETCH_SUCESSFUL,
+  ARTISTS__FETCH_LIST,
+  ARTISTS__LIST_FETCH_FAILED,
+  ARTISTS__UPDATE_LIST,
+  ARTISTS__FETCH_ARTIST,
+  ARTISTS__SET_SHOWING_ARTIST,
+  ARTISTS__ARTIST_FETCH_FAILED,
 } from '../constants/actionTypes';
 
 
 const artistsFetchAction = () => ({
-  type: ARTIST_LIST__FETCH,
+  type: ARTISTS__FETCH_LIST,
 });
 
-const artistsFetchFailedAction = (error) => ({
-  type: ARTIST_LIST__FETCH_FAILED,
+const artistsListFetchFailedAction = (error) => ({
+  type: ARTISTS__LIST_FETCH_FAILED,
   error,
 });
 
-const artistsFetchSuccesfullAction = (artistsList) => ({
-  type: ARTIST_LIST__FETCH_SUCESSFUL,
+const artistsUpdateListAction = (artistsList) => ({
+  type: ARTISTS__UPDATE_LIST,
   artists: artistsList,
+});
+
+const fetchArtistAction = () => ({
+  type: ARTISTS__FETCH_ARTIST,
+});
+
+const artistUpdateAction = (artist) => ({
+  type: ARTISTS__SET_SHOWING_ARTIST,
+  artist,
+});
+
+const artistFetchFailedAction = (error) => ({
+  type: ARTISTS__ARTIST_FETCH_FAILED,
+  error,
 });
 
 
@@ -27,9 +44,23 @@ export function fetchArtists() {
     fetch('/api/artists')
       .then(response => response.json())
       .then(response => {
-        dispatch(artistsFetchSuccesfullAction(response.artists));
+        dispatch(artistsUpdateListAction(response.artists));
       })
-      .catch(error => dispatch(artistsFetchFailedAction(error)))
+      .catch(error => dispatch(artistsListFetchFailedAction(error)))
+    ;
+  };
+}
+
+export function fetchArtist(id) {
+  return dispatch => {
+    dispatch(fetchArtistAction());
+
+    fetch(`/api/artists/${id}`)
+      .then(response => response.json())
+      .then(response => {
+        dispatch(artistUpdateAction(response.artist));
+      })
+      .catch(error => dispatch(artistFetchFailedAction(error)))
     ;
   };
 }

@@ -22,5 +22,12 @@ router.get('/albums/:id', (req, res) => {
   });
 });
 
+router.get('/artists/:id', (req, res) => {
+  const { id } = req.params;
+  res.json({
+    artist: artistsJSON.filter(artist => artist.id === parseInt(id, 10))[0] || null,
+  });
+});
+
 
 export default router;
