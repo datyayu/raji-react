@@ -7,8 +7,10 @@ body
   overflow-x: hidden
 
   +at-desktop()
-    margin-left: 200px
+    margin-left: 175px
 
+  +at-hd-desktop()
+    margin-left: 200px
 ul
   margin: 0
   padding: 0
@@ -22,9 +24,20 @@ a
   margin: 0
 
 .Content
+  flex: 1
   width: 100%
   height: 100%
   margin-top: 3em
+
+  &--with-playlist
+    display: flex
+    width: 100%
+
+    +at-desktop()
+      .Content
+        margin: 0 2.5%
+
+
 
   +at-desktop()
     width: 90%

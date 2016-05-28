@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import './styles';
 
 
 import PlaylistTitle from '../PlaylistTitle';

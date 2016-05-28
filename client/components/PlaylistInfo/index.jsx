@@ -1,15 +1,15 @@
 import React, { PropTypes } from 'react';
-
+import './styles';
 
 const PlaylistInfo = ({ info }) => (
   !info ?
     <img src="/public/assets/img/spinner_dark.gif" />
   :
-    <div className="Playlist-info is-active">
-      <img className="Playlist-infoImage" src={info.image} />
-      <div className="Playlist-infoText">
-        <p className="Playlist-text"> {info.title} </p>
-        <p className="Playlist-text"> by {info.artists.join(',')} </p>
+    <div className="PlaylistInfo is-active">
+      <img className="PlaylistInfo__image" src={info.image} />
+      <div className="PlaylistInfo__textContainer">
+        <p className="PlaylistInfo__text"> {info.title} </p>
+        <p className="PlaylistInfo__text"> by {info.author} </p>
       </div>
     </div>
 );

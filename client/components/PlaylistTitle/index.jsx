@@ -1,11 +1,12 @@
 import React from 'react';
+import './styles';
 
 
 const PlaylistTitle = ({ showInfo = true }) => (
   showInfo ?
-    <p className="Playlist-title"> Current playlist </p>
+    <p className="PlaylistTitle"> Current playlist </p>
   :
-    <p className="Playlist-title"> Songs in this Playlist </p>
+    <p className="PlaylistTitle"> Songs in this Playlist </p>
 );
 
 

@@ -1,0 +1,26 @@
+@import "../../helpers/mixins.sass"
+
+.PlaylistInfo
+  display: none
+  justify-content: center
+  align-items: center
+  color: $COLOR__LIGHT_TEXT
+  padding: .5em
+  margin: 0 auto
+  font-size: 1.5em
+  width: 85%
+  border-bottom: 1px solid $COLOR__LIGHT_TEXT
+
+  +at-hd-desktop()
+    display: flex
+
+  &.is-active
+    height 200px
+
+.PlaylistInfo__image
+  height: 100px
+  min-width: 100px
+  margin-right: 1em
+
+.PlaylistInfo__text
+  margin: 0em

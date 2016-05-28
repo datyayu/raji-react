@@ -25,3 +25,13 @@ Also, to test the application use
 ```bash
 $ npm test
 ```
+
+
+# TODO:
+- [ ] Add playlist
+- [ ] Add playing capabilities
+- [ ] Add series view
+- [ ] Add series index
+- [ ] Write backend :D
+- [ ] Refactor components
+- [ ] Reorganize components based on its function.

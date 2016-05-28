@@ -1,0 +1,72 @@
+@import "../../helpers/mixins.sass"
+
+.PlaylistItem
+  align-items: center
+  border-bottom: 1px solid $COLOR__LIGHT-TEXT
+  color: $COLOR__LIGHT_TEXT
+  display: flex
+  justify-content: space-between
+  padding: .5em 1em
+  padding-right: 0.3em
+
+  +at-hd-desktop()
+    max-width: 90%
+    min-width: 90%
+    padding: .5em 0
+    padding-right: 1em
+    margin: 0 auto
+
+  &.is-playing
+    background: rgba(white,.1)
+    color: $COLOR__CLEAR_TEXT
+
+  &:hover
+    background: $COLOR__BOX_BG_ACTIVE
+    cursor: pointer
+    color: $COLOR__CLEAR_TEXT
+
+.PlaylistItem__info
+  display: flex
+  width: 100%
+
+.PlaylistItem__image
+  display: none
+  margin-right: 1em
+  min-width: 40px
+  height: 40px
+
+  +at-hd-desktop()
+    display: block
+    min-width: 50px
+    height: 50px
+
+.PlaylistItem__desc
+  display: flex
+  flex: 1
+  justify-content: center
+  text-align: center
+  font-size: 1em
+  max-width: 100%
+
+  +at-hd-desktop()
+    text-align: left
+    justify-content: space-between
+
+.PlaylistItem__textContainer
+  flex-direction: column
+
+.PlaylistItem__text
+  +ellipsis-wrap()
+  margin: 0
+
+.PlaylistItem__icons
+  align-items: center
+  display: none
+  justify-content: space-between
+
+  +at-hd-desktop()
+    display: flex
+
+.PlaylistItem__icon
+  font-size: 1.5em
+  margin-left: 1em
