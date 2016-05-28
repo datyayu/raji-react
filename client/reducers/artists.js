@@ -15,7 +15,6 @@ const initialState = {
 
 
 export default function artistsReducer(state = initialState, action) {
-  console.log(action);
   switch (action.type) {
     case ARTISTS__FETCH_LIST:
       return { ...state, artists: [] };

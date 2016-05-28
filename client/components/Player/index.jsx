@@ -7,7 +7,7 @@ import PlayerControls from '../PlayerControls';
 
 const Player = ({ player, playlist = [] }) => (
   <div className="Player">
-    <PlayerInfo {...playlist[player.currentSongId]} />
+    <PlayerInfo {...playlist.songs[player.currentSongId]} />
     <PlayerControls {...player} />
   </div>
 );
@@ -20,9 +20,12 @@ Player.propTypes = {
     isRandom: PropTypes.bool,
     isLooped: PropTypes.bool,
     volume: PropTypes.number,
-    currentSongId: PropTypes.number.isRequired,
+    currentSongId: PropTypes.number,
   }).isRequired,
-  playlist: PropTypes.array,
+  playlist: PropTypes.shape({
+    songs: PropTypes.array,
+    info: PropTypes.object,
+  }),
 };
 
 
