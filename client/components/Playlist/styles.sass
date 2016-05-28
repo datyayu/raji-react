@@ -1,26 +1,38 @@
 @import "../../helpers/mixins.sass"
 
 .Playlist
-  position: absolute
-  top: 0
-  right: -75vw
   min-width: 75%
   max-width: 75%
   min-height: 100%
+  background: $COLOR__BOX_BG
+  z-index: 99
+  transition: 300ms margin-right ease-in-out
+  margin-right: -75%
+  min-height: 100vh
+  max-height: 100vh
+  overflow-y: auto
+
+  &.is-active
+    margin-right: 0
 
   +at-desktop()
     position: static
     flex: 1
     flex-direction: column
-    min-height: 100vh
-    max-height: 100vh
     min-width: 200px
     max-width: 200px
-    background: $COLOR__BOX_BG
     align-items: center
-    overflow-y: auto
     box-shadow: -4px 0 4px
+    z-index: auto
+    margin-right: -205px // 5 offset because of box-shadow
+
+    &.is-active
+      margin-right: 0
 
   +at-hd-desktop()
+    margin-right: -405px // 5 offset because of box-shadow
     min-width: 400px
     max-width: 400px
+
+    &.is-active
+      margin-right: 0

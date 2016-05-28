@@ -20,14 +20,33 @@
     border-bottom: 1px solid $COLOR__LIGHT_TEXT
     box-shadow: none
 
-  .Icon-bars
+  .Icon
     color: white
     position: absolute
     top: .17em
-    left: .25em
-    font-size: 2.5em
     z-index: 1
     cursor: pointer
+    font-size: 2.5em
+
+
+  .Icon-bars
+    left: .25em
 
     +at-desktop()
       display: none
+
+  .Icon-caret-square-o-left
+    right: .5em
+
+    +at-desktop()
+      right: .4em
+      top: .6em
+      color: $COLOR__DARK_TEXT
+      transition: color .3s ease-in-out
+
+      &.over-playlist
+        color: white
+
+    +at-hd-desktop()
+      top: .5em
+      right: .7em

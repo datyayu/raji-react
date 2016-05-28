@@ -22,13 +22,17 @@ const logo = {
 
 const RootComponent = ({ applicationState, applicationActions, children }) => (
   <div>
-    <Sidebar isActive={applicationState.showSidemenu} logo={logo} links={links} />
+    <Sidebar
+      logo={logo}
+      links={links}
+      isActive={applicationState.showSidemenu}
+    />
 
     { children }
 
     <MobileContentBlocker
-      isActive={applicationState.showSidemenu}
-      closeAction={applicationActions.toggleSidemenu}
+      isActive={applicationState.showSidemenu || applicationState.showPlaylist}
+      closeAction={applicationActions.closeSidelists}
     />
   </div>
 );

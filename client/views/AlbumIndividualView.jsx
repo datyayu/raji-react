@@ -12,6 +12,8 @@ const AlbumIndividualView = ({ albumState = {}, applicationActions }) => (
     <Header
       text={albumState.showingAlbum.title || 'Loading...'}
       toggleAction={applicationActions.toggleSidemenu}
+      togglePlaylist={applicationActions.togglePlaylist}
+      hasPlaylist
     />
     <AlbumIndividual {...albumState.showingAlbum} />
   </main>

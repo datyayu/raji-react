@@ -261,17 +261,32 @@ const playerState = {
 };
 
 
-const PlayerView = ({ applicationActions }) => (
+const PlayerView = ({ applicationState, applicationActions }) => (
   <main className="Content--with-playlist">
     <div className="Content">
-      <Header text="Now Playing" toggleAction={applicationActions.toggleSidemenu} />
+      <Header
+        text="Now playing"
+        toggleAction={applicationActions.toggleSidemenu}
+        togglePlaylist={applicationActions.togglePlaylist}
+        playlistVisible={applicationState.showPlaylist}
+        playlistIconVisible
+        hasPlaylist
+      />
       <Player {...playerState} />
     </div>
-    <Playlist playlist={playerState.playlist} currentSongId={1} showInfo />
+    <Playlist
+      playlist={playerState.playlist}
+      isVisible={applicationState.showPlaylist}
+      currentSongId={1}
+      showInfo
+    />
   </main>
 );
 
 PlayerView.propTypes = {
+  applicationState: PropTypes.shape({
+    showPlaylist: PropTypes.bool,
+  }),
   applicationActions: PropTypes.shape({
     toggleSidemenu: PropTypes.func,
   }),
