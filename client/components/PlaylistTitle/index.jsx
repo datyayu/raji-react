@@ -6,7 +6,7 @@ const PlaylistTitle = ({ showInfo = true }) => (
   showInfo ?
     <p className="PlaylistTitle"> Current playlist </p>
   :
-    <p className="PlaylistTitle"> Songs in this Playlist </p>
+    <p className="PlaylistTitle"> Songs included </p>
 );
 
 

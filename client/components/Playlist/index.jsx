@@ -15,16 +15,18 @@ const Playlist = ({
 }) => (
   <div className={`Playlist ${isVisible ? 'is-active' : ''}`}>
     <PlaylistTitle showInfo={showInfo} />
-    <PlaylistInfo info={playlist.info} show={showInfo && playlist} />
+
+    { playlist.author ? <PlaylistInfo info={playlist.info} show={showInfo && playlist} /> : null }
+
     {
-      playlist === null ?
-        <img src="/public/assets/img/spinner_dark.gif" />
-      :
+      playlist.songs ?
         <PlaylistSongList
           songs={playlist.songs}
           currentSongId={currentSongId}
           isPlaying={isPlaying}
         />
+      :
+        <img src="/public/assets/img/spinner_dark.gif" />
       }
   </div>
 );

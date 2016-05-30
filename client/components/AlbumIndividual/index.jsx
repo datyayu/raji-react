@@ -4,8 +4,8 @@ import './styles';
 import AlbumArtistName from '../AlbumArtistName';
 
 
-const AlbumIndividual = ({ id, title, image = '/assets/defaultAlbum.png', artists = [] }) => (
-  id ?
+const AlbumIndividual = ({ title, image = '/assets/defaultAlbum.png', artists = [] }) => (
+  title ?
     <div className="AlbumIndividual">
       <img src={image} alt={title} className="AlbumIndividual__img" />
       <h1 className="AlbumIndividual__title">{title}</h1>
@@ -23,7 +23,6 @@ const AlbumIndividual = ({ id, title, image = '/assets/defaultAlbum.png', artist
 
 
 AlbumIndividual.propTypes = {
-  id: PropTypes.number,
   title: PropTypes.string,
   image: PropTypes.string,
   artists: PropTypes.arrayOf(

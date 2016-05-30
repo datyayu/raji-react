@@ -3,14 +3,14 @@ import './styles';
 
 const PlaylistItem = ({ info, isPlaying = false }) => (
   <li className={`PlaylistItem ${isPlaying ? 'is-playing' : ''}`} >
-    <div className="PlaylistItem__info">
+  <div className="PlaylistItem__info">
       <img className="PlaylistItem__image" src={info.album.image} />
 
       <div className="PlaylistItem__desc">
         <div className="PlaylistItem__textContainer">
           <p className="PlaylistItem__text"> {info.title} </p>
           <p className="PlaylistItem__text">
-            { (info.artists || [{}]).map(a => a.name).join(', ') }
+            { (info.artists || []).map(a => a.name).join(', ') }
           </p>
         </div>
 

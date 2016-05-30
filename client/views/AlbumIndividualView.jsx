@@ -1,33 +1,45 @@
 import React, { PropTypes } from 'react';
 
-import ApplicationContainers from '../containers/application';
+import ApplicationContainer from '../containers/application';
 import AlbumIndividualContainer from '../containers/albumIndividual';
 
 import Header from '../components/Header';
 import AlbumIndividual from '../components/AlbumIndividual';
+import Playlist from '../components/Playlist';
 
 
-const AlbumIndividualView = ({ albumState = {}, applicationActions }) => (
-  <main className="Content">
-    <Header
-      text={albumState.showingAlbum.title || 'Loading...'}
-      toggleAction={applicationActions.toggleSidemenu}
-      togglePlaylist={applicationActions.togglePlaylist}
-      hasPlaylist
+const AlbumIndividualView = ({ applicationState, albumState = {}, applicationActions }) => (
+  <main className="Content--with-playlist">
+    <div className="Content">
+      <Header
+        text={(albumState.showingAlbum.info || {}).title || 'Loading...'}
+        toggleAction={applicationActions.toggleSidemenu}
+        togglePlaylist={applicationActions.togglePlaylist}
+        playlistVisible={applicationState.showPlaylist}
+        playlistIconVisible
+        hasPlaylist
+      />
+      <AlbumIndividual {...albumState.showingAlbum.info || {}} />
+    </div>
+    <Playlist
+      playlist={albumState.showingAlbum}
+      isVisible={applicationState.showPlaylist}
+      currentSongId={1}
+      showInfo={false}
     />
-    <AlbumIndividual {...albumState.showingAlbum} />
   </main>
 );
 
 AlbumIndividualView.propTypes = {
   albumState: PropTypes.object,
+  applicationState: PropTypes.object,
   applicationActions: PropTypes.shape({
     toggleSidemenu: PropTypes.func,
   }),
 };
 
 
-export default ApplicationContainers(
+export default ApplicationContainer(
   AlbumIndividualContainer(
     AlbumIndividualView
   )

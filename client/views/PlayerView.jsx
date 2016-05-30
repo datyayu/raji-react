@@ -26,7 +26,7 @@ const playerState = {
     },
     songs: [
       {
-        id: 1,
+        id: '1',
         title: 'Puengue',
         number: 1,
         artists: [
@@ -47,7 +47,7 @@ const playerState = {
         audio_file: '/assets/puengue.mp3',
       },
       {
-        id: 2,
+        id: '2',
         title: 'Puengue',
         number: 2,
         artists: [
@@ -68,7 +68,7 @@ const playerState = {
         audio_file: '/assets/puengue.mp3',
       },
       {
-        id: 3,
+        id: '3',
         title: 'Puengue',
         number: 3,
         artists: [
@@ -89,7 +89,7 @@ const playerState = {
         audio_file: '/assets/puengue.mp3',
       },
       {
-        id: 4,
+        id: '4',
         title: 'Puengue',
         number: 4,
         artists: [
@@ -110,7 +110,7 @@ const playerState = {
         audio_file: '/assets/puengue.mp3',
       },
       {
-        id: 5,
+        id: '5',
         title: 'Puengue',
         number: 5,
         artists: [
@@ -131,7 +131,7 @@ const playerState = {
         audio_file: '/assets/puengue.mp3',
       },
       {
-        id: 6,
+        id: '6',
         title: 'Puengue',
         number: 6,
         artists: [
@@ -152,7 +152,7 @@ const playerState = {
         audio_file: '/assets/puengue.mp3',
       },
       {
-        id: 7,
+        id: '7',
         title: 'Puengue',
         number: 7,
         artists: [
@@ -173,7 +173,7 @@ const playerState = {
         audio_file: '/assets/puengue.mp3',
       },
       {
-        id: 8,
+        id: '8',
         title: 'Puengue',
         number: 8,
         artists: [
@@ -194,7 +194,7 @@ const playerState = {
         audio_file: '/assets/puengue.mp3',
       },
       {
-        id: 9,
+        id: '9',
         title: 'Puengue',
         number: 9,
         artists: [
@@ -215,7 +215,7 @@ const playerState = {
         audio_file: '/assets/puengue.mp3',
       },
       {
-        id: 10,
+        id: '10',
         title: 'Puengue',
         number: 10,
         artists: [
@@ -236,7 +236,7 @@ const playerState = {
         audio_file: '/assets/puengue.mp3',
       },
       {
-        id: 11,
+        id: '11',
         title: 'Puengue',
         number: 11,
         artists: [

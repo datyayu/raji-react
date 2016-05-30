@@ -45,7 +45,10 @@
       transition: color .3s ease-in-out
 
       &.over-playlist
-        color: white
+        color: $COLOR__LIGHT_TEXT
+
+        &:hover
+          color: $COLOR__CLEAR_TEXT
 
     +at-hd-desktop()
       top: .5em

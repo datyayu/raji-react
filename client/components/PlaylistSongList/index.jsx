@@ -4,7 +4,7 @@ import './styles';
 import PlaylistItem from '../PlaylistItem';
 
 
-const PlaylistSongList = ({ songs, currentSongId, isPlaying = false }) => (
+const PlaylistSongList = ({ songs = [], currentSongId, isPlaying = false }) => (
   <ul className="PlaylistSongList">
   {
     songs.map((song) =>
@@ -23,7 +23,7 @@ PlaylistSongList.propTypes = {
   currentSongId: PropTypes.number.isRequired,
   songs: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
     })
   ),
 };

@@ -8,6 +8,7 @@
   justify-content: space-between
   padding: .5em 1em
   padding-right: 0.3em
+  position: relative
 
   +at-hd-desktop()
     max-width: 90%
@@ -15,6 +16,7 @@
     padding: .5em 0
     padding-right: 1em
     margin: 0 auto
+    overflow: hidden
 
   &.is-playing
     background: rgba(white,.1)
@@ -56,19 +58,34 @@
 
 .PlaylistItem__textContainer
   flex-direction: column
+  min-width: 100%
+  +at-hd-desktop()
+    min-width: 75%
+    max-width: 75%
 
 .PlaylistItem__text
   +ellipsis-wrap()
+  width: 80%
   margin: 0
+
+  +at-tablet
+    width: 90%
+
+  +at-desktop()
+    max-width: 100%
 
 .PlaylistItem__icons
   align-items: center
   display: none
+  width: 6em
   justify-content: space-between
+  top: 1.25em
+  right: .5em
 
   +at-hd-desktop()
     display: flex
+    position: absolute
 
 .PlaylistItem__icon
   font-size: 1.5em
-  margin-left: 1em
+  margin-left: .5em
